@@ -1,16 +1,17 @@
 const multer = require('multer');
 const path = require('path');
+require('dotenv').config();
 
 //set up storage
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, 'uploads/'); //directory save upload files
+        cb(null, process.env.UPLOAD_DIR); //directory save upload files
     },
     // filename : function (req, file, cb){
     //     cb(null, Date.now() + path.extname(file.originalname)) //uniq filename
     // }
     filename: function (req, file, cb) {
-        const uniqueSuffix = Data.now() + '-' + path.extname(file.originalname);
+        const uniqueSuffix = Date.now() + '-' + path.extname(file.originalname);
         cb(null, 'product-' + uniqueSuffix)
     }
 

@@ -6,7 +6,6 @@ const ctrl = require('../controllers/productController')
 //localhost:5000/products
 //create a new product
 router.post('/', upload.single('image'), ctrl.createProduct)
-
 //get all product
 router.get('/', ctrl.getAllProduct);
 //get a single product by Id
