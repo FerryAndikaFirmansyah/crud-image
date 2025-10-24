@@ -8,7 +8,7 @@ const { emitWarning } = require('process');
 exports.createProduct = async (req, res) => {
     try {
         const { name } = req.body
-        let image = req.file ? req.file.path : null;
+        let image = req.file ? req.file.filename : null;
         const product = await Product.create({ name, image });
         res.status(201).json(product);
     } catch (err) {
